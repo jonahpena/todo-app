@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PracticeAPI.Models;
+﻿namespace PracticeAPI.Models;
 
 public class Task
 {

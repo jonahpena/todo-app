@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "PracticeAPI": {
+    "TaskAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

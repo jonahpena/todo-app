@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskApi.csproj": {}
+    "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskApi.csproj": {
+    "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskApi.csproj",
-        "projectName": "TaskApi",
-        "projectPath": "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskApi.csproj",
+        "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskAPI.csproj",
+        "projectName": "TaskAPI",
+        "projectPath": "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\TaskAPI.csproj",
         "packagesPath": "C:\\Users\\jonah\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\jonah\\github\\csprojects\\PracticeAPI\\PracticeAPI\\obj\\",
         "projectStyle": "PackageReference",
