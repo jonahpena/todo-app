@@ -16,7 +16,6 @@ namespace TaskListAPIProject.Controllers
             _context = context;
         }
 
-        // GET: api/TaskItems
         [HttpGet]
         [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<TaskItem>>> GetTasks()
@@ -28,7 +27,6 @@ namespace TaskListAPIProject.Controllers
             return await _context.Tasks.ToListAsync();
         }
 
-        // GET: api/TaskItems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskItem>> GetTaskItem(int id)
         {
@@ -46,8 +44,6 @@ namespace TaskListAPIProject.Controllers
             return taskItem;
         }
 
-        // PUT: api/TaskItems/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTaskItem(int id, TaskItem taskItem)
         {
@@ -77,8 +73,6 @@ namespace TaskListAPIProject.Controllers
             return NoContent();
         }
 
-        // POST: api/TaskItems
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)
         {
@@ -92,7 +86,6 @@ namespace TaskListAPIProject.Controllers
             return CreatedAtAction("GetTaskItem", new { id = taskItem.Id }, taskItem);
         }
 
-        // DELETE: api/TaskItems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTaskItem(int id)
         {
@@ -111,7 +104,6 @@ namespace TaskListAPIProject.Controllers
 
             return NoContent();
         }
-
         private bool TaskItemExists(int id)
         {
             return (_context.Tasks?.Any(e => e.Id == id)).GetValueOrDefault();
