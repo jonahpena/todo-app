@@ -18,6 +18,7 @@ namespace TaskListAPIProject.Controllers
 
         // GET: api/TaskItems
         [HttpGet]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<TaskItem>>> GetTasks()
         {
             if (_context.Tasks == null)
