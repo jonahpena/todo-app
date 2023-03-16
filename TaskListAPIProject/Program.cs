@@ -35,7 +35,6 @@ namespace TaskListAPIProject
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
