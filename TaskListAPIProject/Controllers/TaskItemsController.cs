@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskListAPIProject.Data;
 using TaskListAPIProject.Models;
@@ -25,10 +20,10 @@ namespace TaskListAPIProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskItem>>> GetTasks()
         {
-          if (_context.Tasks == null)
-          {
-              return NotFound();
-          }
+            if (_context.Tasks == null)
+            {
+                return NotFound();
+            }
             return await _context.Tasks.ToListAsync();
         }
 
@@ -36,10 +31,10 @@ namespace TaskListAPIProject.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskItem>> GetTaskItem(int id)
         {
-          if (_context.Tasks == null)
-          {
-              return NotFound();
-          }
+            if (_context.Tasks == null)
+            {
+                return NotFound();
+            }
             var taskItem = await _context.Tasks.FindAsync(id);
 
             if (taskItem == null)
@@ -86,10 +81,10 @@ namespace TaskListAPIProject.Controllers
         [HttpPost]
         public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)
         {
-          if (_context.Tasks == null)
-          {
-              return Problem("Entity set 'TaskDbContext.Tasks'  is null.");
-          }
+            if (_context.Tasks == null)
+            {
+                return Problem("Entity set 'TaskDbContext.Tasks'  is null.");
+            }
             _context.Tasks.Add(taskItem);
             await _context.SaveChangesAsync();
 

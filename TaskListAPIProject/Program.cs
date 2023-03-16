@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaskListAPIProject.Data;
 
-
-
 namespace TaskListAPIProject
 {
     public static class Program
@@ -20,6 +18,17 @@ namespace TaskListAPIProject
 
             builder.Services.AddDbContext<TaskDbContext>(option => option.UseMySql(@"Server=localhost;Database=TaskDb;User Id=jonahpena;Password=mysql2012!;", ServerVersion.AutoDetect(@"Server=localhost;Database=TaskDb;User Id=jonahpena;Password=mysql2012!;")));
 
+            // Add CORS service
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             var app = builder.Build();
 
             EnsureDatabaseCreated(app);
@@ -32,6 +41,9 @@ namespace TaskListAPIProject
             }
 
             app.UseHttpsRedirection();
+
+            // Use CORS
+            app.UseCors();
 
             app.UseAuthorization();
 
