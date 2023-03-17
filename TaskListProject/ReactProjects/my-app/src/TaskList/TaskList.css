@@ -16,6 +16,16 @@
   margin-right: 40px;
 }
 
+.delete-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+
 .list-item {
   background-color: #ffffff;
   border-radius: 15px;

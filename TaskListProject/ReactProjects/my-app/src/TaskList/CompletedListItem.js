@@ -1,7 +1,12 @@
 import React from "react";
 import "./TaskList.css";
 
-function CompletedListItem({ item, completedItems, handleMoveBackToTask }) {
+function CompletedListItem({
+  item,
+  completedItems,
+  handleMoveBackToTask,
+  handleRemoveItem,
+}) {
   const handleCheckboxChange = (e) => {
     console.log("checkbox changed");
     console.log("item:", item);
@@ -25,6 +30,12 @@ function CompletedListItem({ item, completedItems, handleMoveBackToTask }) {
           <span></span>
         </label>
         <div className="completed-list-item-text">{item.title}</div>
+        <span
+          className="material-icons delete-icon"
+          onClick={() => handleRemoveItem(item.id)}
+        >
+          close
+        </span>
       </div>
       {/* <span className="completed-time">{item.time}</span> */}
     </li>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskList.css";
 
-function ListItem({ item, index, handleCompleteItem }) {
+function ListItem({ item, index, handleCompleteItem, handleRemoveItem }) {
   return (
     <li className="list-item">
       <label>
@@ -13,6 +13,12 @@ function ListItem({ item, index, handleCompleteItem }) {
         <span></span>
       </label>
       <span className="list-item-text">{item.title}</span>
+      <span
+        className="material-icons delete-icon"
+        onClick={() => handleRemoveItem(item.id)}
+      >
+        close
+      </span>
     </li>
   );
 }

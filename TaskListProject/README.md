@@ -1,10 +1,11 @@
-# Getting Started with Create React App
+# Getting Started with ~INSERT NAME HERE~ App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Front End:
+create a .env file and add it to the root directory
+add "REACT_APP_API_URL=https://localhost:7020/api/TaskItems" into the text and save the file. 
 
-## Available Scripts
 
-In the project directory, you can run:
+Back End:
 
 ### `npm start`
 
