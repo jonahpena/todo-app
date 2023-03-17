@@ -13,8 +13,9 @@ function ListItem({ item, index, handleCompleteItem, handleRemoveItem }) {
           />
           <span></span>
         </label>
-        <span className="list-item-text">{item.title}</span>
       </div>
+      <div className="list-item-text">{item.title}</div>
+      <div></div>
       <span
         className="material-icons delete-icon"
         onClick={() => handleRemoveItem(item.id)}
