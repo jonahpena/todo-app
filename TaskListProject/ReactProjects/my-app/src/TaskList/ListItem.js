@@ -13,7 +13,6 @@ function ListItem({
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(item.title);
-  const [previousIsEditing, setPreviousIsEditing] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
