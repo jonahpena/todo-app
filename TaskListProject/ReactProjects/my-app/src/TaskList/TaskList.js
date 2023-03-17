@@ -15,7 +15,13 @@ function TaskList() {
   useEffect(() => {
     fetch(`${API_URL}`)
       .then((response) => response.json())
-      .then((data) => setItems(data));
+      .then((data) => {
+        const uncompletedTasks = data.filter((task) => !task.completed);
+        const completedTasks = data.filter((task) => task.completed);
+
+        setItems(uncompletedTasks);
+        setCompletedItems(completedTasks);
+      });
   }, []);
 
   const handleAddItem = () => {
@@ -38,9 +44,10 @@ function TaskList() {
 
   const handleRemoveItem = (id) => {
     // DELETE the task from the API
-    fetch(`${API_URL}/${id}`, { method: "DELETE" }).then(() =>
-      setItems(items.filter((item) => item.id !== id))
-    );
+    fetch(`${API_URL}/${id}`, { method: "DELETE" }).then(() => {
+      setItems(items.filter((item) => item.id !== id));
+      setCompletedItems(completedItems.filter((item) => item.id !== id));
+    });
   };
 
   const handleCompleteItem = (item) => {
@@ -48,7 +55,7 @@ function TaskList() {
     fetch(`${API_URL}/${item.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...item, isComplete: true }),
+      body: JSON.stringify({ ...item, completed: true }),
     }).then(() => {
       setItems(items.filter((i) => i.id !== item.id));
       setCompletedItems([item, ...completedItems]);
@@ -60,7 +67,7 @@ function TaskList() {
     fetch(`${API_URL}/${item.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...item, isComplete: false }),
+      body: JSON.stringify({ ...item, completed: false }),
     }).then(() => {
       setCompletedItems(completedItems.filter((i) => i.id !== item.id));
       setItems([item, ...items]);
@@ -127,6 +134,8 @@ function TaskList() {
                 <CompletedListItem
                   key={index}
                   item={item}
+                  completedItems={completedItems} // Add this line
+                  handleRemoveItem={handleRemoveItem}
                   handleMoveBackToTask={handleMoveBackToTask}
                 />
               ))}
