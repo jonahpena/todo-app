@@ -18,26 +18,31 @@ function CompletedListItem({
 
   return (
     <li className="completed-list-bubble">
-      <div className="completed-list-item">
-        <label className="filled-in">
-          <input
-            type="checkbox"
-            className="complete-button"
-            checked
-            style={{ color: "white" }}
-            onChange={handleCheckboxChange}
-          />
-          <span></span>
-        </label>
-        <div className="completed-list-item-text">{item.title}</div>
-        <span
-          className="material-icons delete-icon"
-          onClick={() => handleRemoveItem(item.id)}
-        >
-          close
-        </span>
+      <div>
+        <div className="completed-list-item">
+          <label className="filled-in">
+            <input
+              type="checkbox"
+              className="complete-button"
+              checked
+              style={{ color: "white" }}
+              onChange={handleCheckboxChange}
+            />
+            <span></span>
+          </label>
+          <div className="completed-list-item-text">{item.title}</div>
+        </div>{" "}
+        <div className="completed-delete-icon">
+          {" "}
+          <span
+            className="material-icons"
+            onClick={() => handleRemoveItem(item.id)}
+          >
+            close
+          </span>
+        </div>
+        {/* <span className="completed-time">{item.time}</span> */}
       </div>
-      {/* <span className="completed-time">{item.time}</span> */}
     </li>
   );
 }

@@ -16,10 +16,21 @@
   margin-right: 40px;
 }
 
+.completed-delete-icon {
+  float: right;
+  margin-top: -28px;
+  cursor: pointer;
+}
+
 .delete-icon {
   float: right;
   cursor: pointer;
 }
+
+.list-item-inner {
+  margin-top: 4px;
+}
+
 
 .delete-icon:hover {
   color: red;
@@ -31,13 +42,15 @@
   border-radius: 15px;
   padding: 20px 20px;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   width: 375px;
   margin: auto;
   margin-top: 20px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  justify-content: space-between; /* Added */
 }
+
+
 
 .completed-list-bubble {
   background-color: #66b4c2;
