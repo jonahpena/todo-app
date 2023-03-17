@@ -4,6 +4,8 @@
   font-size: 24px;
 }
 
+
+
 .input-field {
   margin-right: 117px;
   font-family: "Nunito", sans-serif;
@@ -14,6 +16,12 @@
   align-items: center;
   padding-top: 50px;
   margin-right: 40px;
+}
+
+.incomplete-delete-icon {
+  float: right;
+  margin-top: 6px;
+  cursor: pointer;
 }
 
 .completed-delete-icon {
@@ -42,14 +50,20 @@
   border-radius: 15px;
   padding: 20px 20px;
   display: flex;
-  align-items: center;
+
+  align-items: flex-start;
   width: 375px;
   margin: auto;
   margin-top: 20px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  justify-content: space-between; /* Added */
+
 }
 
+.completed-list-item {
+  display: flex;
+  align-items: flex-start;
+  width: 375px;
+}
 
 
 .completed-list-bubble {
@@ -64,21 +78,20 @@
 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
-.completed-list-item {
-  display: flex;
-  align-items: flex-start;
-  width: 375px;
-}
+
 
 .list-item-text {
-  margin-left: -135px;
-  text-align: left;
   font-family: "Nunito", sans-serif;
+  width: 270px;
+  margin-top: 5px;
+  text-align: left;
 }
 
 .completed-list-item-text {
   opacity: 0.8;
   margin-top: 3px;
+  text-align: left;
+  width: 270px;
   text-decoration: line-through;
   font-family: "Nunito", sans-serif;
 }
