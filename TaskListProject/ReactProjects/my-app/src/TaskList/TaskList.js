@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./TaskList.css";
 import ListItem from "./ListItem";
 import CompletedListItem from "./CompletedListItem";
@@ -11,6 +11,7 @@ function TaskList() {
   const [inputValue, setInputValue] = useState("");
   const [invalidInput, setInvalidInput] = useState(false);
   const [showCompletedItems, setShowCompletedItems] = useState(false);
+  const editingItemIdRef = useRef(null);
 
   useEffect(() => {
     fetch(`${API_URL}`)
@@ -84,6 +85,9 @@ function TaskList() {
     });
     setItems(updatedItems);
 
+    // Reset the editingItemId state
+    editingItemIdRef.current = null;
+
     // PUT the updated task title to the API
     fetch(`${API_URL}/${id}`, {
       method: "PUT",
@@ -93,6 +97,12 @@ function TaskList() {
         title: newTitle,
       }),
     });
+  };
+
+  const handleEditingTask = (id) => {
+    if (editingItemIdRef.current !== null && editingItemIdRef.current !== id) {
+      editingItemIdRef.current = id;
+    }
   };
 
   const hasCompletedItems = completedItems.length > 0;
@@ -138,6 +148,8 @@ function TaskList() {
             handleRemoveItem={handleRemoveItem}
             handleCompleteItem={handleCompleteItem}
             handleUpdateItem={handleUpdateItem}
+            editingItemIdRef={editingItemIdRef}
+            handleEditingTask={handleEditingTask}
           />
         ))}
       </ul>
