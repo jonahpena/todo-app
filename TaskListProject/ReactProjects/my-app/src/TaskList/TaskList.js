@@ -74,6 +74,27 @@ function TaskList() {
     });
   };
 
+  const handleUpdateItem = (id, newTitle) => {
+    // Update the task title in the local state
+    const updatedItems = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, title: newTitle };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+
+    // PUT the updated task title to the API
+    fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...updatedItems.find((item) => item.id === id),
+        title: newTitle,
+      }),
+    });
+  };
+
   const hasCompletedItems = completedItems.length > 0;
 
   return (
@@ -116,6 +137,7 @@ function TaskList() {
             index={index}
             handleRemoveItem={handleRemoveItem}
             handleCompleteItem={handleCompleteItem}
+            handleUpdateItem={handleUpdateItem}
           />
         ))}
       </ul>
