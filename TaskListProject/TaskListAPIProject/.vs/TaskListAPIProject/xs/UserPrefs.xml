@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{530212A8-AF74-4DBF-96FA-D7AB69A8C453}|Default">
+  <MonoDevelop.Ide.ItemProperties.TaskListAPIProject PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/TaskItemsController.cs">
+    <Files>
+      <File FileName="Models/TaskItem.cs" />
+      <File FileName="Controllers/TaskItemsController.cs" Line="100" Column="14" />
+      <File FileName="Program.cs" />
+      <File FileName="Data/TaskDbContext.cs" />
+      <File FileName="appsettings.json" />
+      <File FileName="appsettings.Development.json" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TaskListAPIProject" expanded="True">
+            <Node name="TaskListAPIProject" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="TaskItemsController.cs" selected="True" />
+              </Node>
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
