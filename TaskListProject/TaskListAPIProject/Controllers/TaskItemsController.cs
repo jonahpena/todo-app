@@ -28,11 +28,17 @@ namespace TaskListAPIProject.Controllers
         {
             var taskItem = await _context.Tasks.FindAsync(id);
 
+            if (taskItem == null)
+            {
+                return NotFound();
+            }
+
+
             return taskItem;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskItem(int id, TaskItem taskItem)
+        public IActionResult PutTaskItem(int id, TaskItem taskItem)
         {
             _context.Entry(taskItem).State = EntityState.Modified;
             return NoContent();
@@ -46,13 +52,21 @@ namespace TaskListAPIProject.Controllers
 
             return CreatedAtAction("GetTaskItem", new { id = taskItem.Id }, taskItem);
         }
-        
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTaskItem(int id)
         {
             var taskItem = await _context.Tasks.FindAsync(id);
+
+            if (taskItem == null)
+            {
+                return NotFound();
+            }
+
             _context.Tasks.Remove(taskItem);
+
             await _context.SaveChangesAsync();
+
             return NoContent();
         }
 

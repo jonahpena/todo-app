@@ -1,5 +1,8 @@
 # Getting Started with ~INSERT NAME HERE~ App
 
+- Run "npm install" in root directory
+
+
 Front End:
 create a .env file and add it to the root directory
 add "REACT_APP_API_URL=https://localhost:7020/api/TaskItems" into the text and save the file. 
