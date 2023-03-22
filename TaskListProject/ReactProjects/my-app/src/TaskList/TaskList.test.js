@@ -1,22 +1,11 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import React from "react";
+import { render, screen } from "@testing-library/react";
 import TaskList from "./TaskList";
 
-// Mock fetch API to avoid making real API calls
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve([]),
-  })
-);
-
 describe("TaskList", () => {
-  beforeEach(() => {
-    fetch.mockClear();
-  });
-
-  test("renders TaskList component", () => {
+  it("should render the input label correctly", () => {
     render(<TaskList />);
-    expect(screen.getByText(/Enter your task/i)).toBeInTheDocument();
+    const inputLabel = screen.getByLabelText("Enter your task");
+    expect(inputLabel).toBeInTheDocument();
   });
-
-  // Add more tests to cover the component's functionality
 });

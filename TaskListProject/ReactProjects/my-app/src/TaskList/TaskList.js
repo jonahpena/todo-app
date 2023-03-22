@@ -114,6 +114,7 @@ function TaskList() {
           e.preventDefault();
           handleAddItem();
         }}
+        data-testid="task-form"
       >
         <div className="row">
           <div
@@ -139,7 +140,7 @@ function TaskList() {
         </div>
       </form>
 
-      <ul>
+      <ul testis="task-list">
         {items.reverse().map((item, index) => (
           <ListItem
             key={index}
@@ -163,7 +164,7 @@ function TaskList() {
             Completed
           </button>
           {showCompletedItems && (
-            <ul>
+            <ul data-testid="completed-task-list">
               {completedItems.slice(0).map((item, index) => (
                 <CompletedListItem
                   key={index}
