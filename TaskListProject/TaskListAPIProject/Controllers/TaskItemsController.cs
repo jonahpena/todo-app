@@ -38,11 +38,46 @@ namespace TaskListAPIProject.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutTaskItem(int id, TaskItem taskItem)
+        public async Task<IActionResult> PutTaskItem(int id, TaskItem taskItem)
         {
+            if (id != taskItem.Id)
+            {
+                return BadRequest();
+            }
+            
+            if (string.IsNullOrEmpty(taskItem.Title))
+            {
+                return BadRequest();
+            }
+
+            // Detach any existing entity with the same Id
+            var existingEntity = await _context.Tasks.FindAsync(id);
+            if (existingEntity != null)
+            {
+                _context.Entry(existingEntity).State = EntityState.Detached;
+            }
+
             _context.Entry(taskItem).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Tasks.Any(e => e.Id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
             return NoContent();
         }
+
 
         [HttpPost]
         public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)

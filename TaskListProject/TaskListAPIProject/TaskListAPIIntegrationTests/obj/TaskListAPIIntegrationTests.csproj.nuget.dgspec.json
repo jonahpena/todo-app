@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj": {}
+    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIIntegrationTests\\TaskListAPIIntegrationTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj": {
+    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIIntegrationTests\\TaskListAPIIntegrationTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj",
-        "projectName": "TaskListAPIProject",
-        "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj",
+        "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIIntegrationTests\\TaskListAPIIntegrationTests.csproj",
+        "projectName": "TaskListAPIIntegrationTests",
+        "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIIntegrationTests\\TaskListAPIIntegrationTests.csproj",
         "packagesPath": "C:\\Users\\jonah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\obj\\",
+        "outputPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIIntegrationTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jonah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -37,58 +37,20 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Cors": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Mvc": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.AspNetCore.Mvc.Testing": {
               "target": "Package",
               "version": "[6.0.15, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[7.0.4, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.4, )"
-            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.5.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[6.0.13, )"
-            },
-            "Moq": {
-              "target": "Package",
-              "version": "[4.18.4, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[17.3.2, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -97,10 +59,6 @@
               "version": "[3.1.2, )"
             },
             "xunit": {
-              "target": "Package",
-              "version": "[2.4.2, )"
-            },
-            "xunit.extensibility.core": {
               "target": "Package",
               "version": "[2.4.2, )"
             },
@@ -123,9 +81,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

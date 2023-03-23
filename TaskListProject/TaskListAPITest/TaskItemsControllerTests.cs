@@ -11,7 +11,7 @@ namespace TaskListAPIProject.Tests
         private TaskDbContext GetInMemoryDbContext()
         {
             var options = new DbContextOptionsBuilder<TaskDbContext>()
-                .UseInMemoryDatabase(databaseName: "TestDatabase")
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
 
             return new TaskDbContext(options);
@@ -48,7 +48,7 @@ namespace TaskListAPIProject.Tests
             var result = await controller.GetTaskItem(1);
 
             // Assert
-            Assert.Null(result.Value);
+            Assert.IsType<NotFoundResult>(result.Result);
         }
         [Fact]
         public async Task GetTasks_ReturnsEmptyListWhenNoTasks()
@@ -65,12 +65,6 @@ namespace TaskListAPIProject.Tests
             var tasks = Assert.IsType<List<TaskItem>>(actionResult.Value);
             Assert.Empty(tasks);
         }
-
-
-
-
-
-
         [Fact]
         public async Task GetTaskItem_ReturnsTaskById()
         {
@@ -92,7 +86,6 @@ namespace TaskListAPIProject.Tests
             Assert.Equal(taskItem.Title, returnedTask.Title);
             Assert.Equal(taskItem.Completed, returnedTask.Completed);
         }
-        // PostTaskItem tests
         [Fact]
         public async Task PostTaskItem_CreatesNewTask()
         {
@@ -114,7 +107,6 @@ namespace TaskListAPIProject.Tests
             Assert.Equal(newTask.Title, createdTask.Title);
             Assert.Equal(newTask.Completed, createdTask.Completed);
         }
-        // DeleteTaskItem tests
         [Fact]
         public async Task DeleteTaskItem_DeletesTask()
         {
@@ -134,7 +126,116 @@ namespace TaskListAPIProject.Tests
             var task = await dbContext.Tasks.FindAsync(1);
             Assert.Null(task);
         }
+        
+        [Fact]
+        public async Task PutTaskItem_UpdatesTask()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
 
+            var taskToUpdate = new TaskItem { Id = 1, Title = "Task 1", Completed = false };
+            dbContext.Tasks.Add(taskToUpdate);
+            dbContext.SaveChanges();
+
+            var updatedTask = new TaskItem { Id = 1, Title = "Updated Task 1", Completed = true };
+
+            // Act
+            var result = await controller.PutTaskItem(1, updatedTask);
+
+            // Assert
+            Assert.IsType<NoContentResult>(result);
+            var task = await dbContext.Tasks.FindAsync(1);
+            Assert.Equal(updatedTask.Id, task.Id);
+            Assert.Equal(updatedTask.Title, task.Title);
+            Assert.Equal(updatedTask.Completed, task.Completed);
+        }
+        [Fact]
+        public async Task DeleteTaskItem_ReturnsNotFoundOnNonExistentTask()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
+
+            // Act
+            var result = await controller.DeleteTaskItem(1);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+        
+        [Fact]
+        public async Task PutTaskItem_ReturnsNotFoundOnNonExistentTask()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
+
+            var nonExistentTask = new TaskItem { Id = 1, Title = "Non-Existent Task", Completed = false };
+
+            // Act
+            var result = await controller.PutTaskItem(1, nonExistentTask);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+        
+        
+        [Fact]
+        public void TaskItem_DescriptionProperty()
+        {
+            // Arrange
+            var taskItem = new TaskItem();
+            var description = "Sample description";
+
+            // Act
+            taskItem.Description = description;
+
+            // Assert
+            Assert.Equal(description, taskItem.Description);
+        }
+        
+        [Fact]
+        public async Task PutTaskItem_ReturnsBadRequest_WhenIdMismatch()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
+
+            var existingTask = new TaskItem { Id = 1, Title = "Existing Task", Completed = false };
+            dbContext.Tasks.Add(existingTask);
+            await dbContext.SaveChangesAsync();
+
+            var updatedTask = new TaskItem { Id = 2, Title = "Updated Task", Completed = true };
+
+            // Act
+            var result = await controller.PutTaskItem(1, updatedTask);
+
+            // Assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+        
+        [Fact]
+        public async Task PutTaskItem_ReturnsBadRequest_WhenTitleMissing()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
+
+            var existingTask = new TaskItem { Id = 1, Title = "Existing Task", Completed = false };
+            dbContext.Tasks.Add(existingTask);
+            await dbContext.SaveChangesAsync();
+
+            var updatedTask = new TaskItem { Id = 1, Title = null, Completed = true };
+
+            // Act
+            var result = await controller.PutTaskItem(1, updatedTask);
+
+            // Assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+        
+        
     }
 
 }
