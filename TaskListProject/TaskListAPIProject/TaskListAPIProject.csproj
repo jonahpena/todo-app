@@ -22,6 +22,7 @@
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-preview.2.23128.3" />
 	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
 	<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
 	<PackageReference Include="Moq" Version="4.18.4" />
@@ -33,6 +34,12 @@
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="TaskListAPIIntegrationTests\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="TaskListAPIIntegrationTests\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="TaskListAPIIntegrationTests\obj\TaskListAPIIntegrationTests.csproj.nuget.dgspec.json" />
   </ItemGroup>
 
 	

@@ -3,22 +3,30 @@ using TaskListAPIProject.Data;
 
 namespace TaskListAPIProject
 {
-    public static class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
+            
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            
+            builder.Services.AddDbContext<TaskDbContext>(options =>
+            {
+                var connectionString = builder.Configuration.GetConnectionString("TaskDb");
 
-            builder.Services.AddDbContext<TaskDbContext>(option => option.UseMySql(@"Server=localhost;Database=TaskDb;User Id=jonahpena;Password=mysql2012!;", ServerVersion.AutoDetect(@"Server=localhost;Database=TaskDb;User Id=jonahpena;Password=mysql2012!;")));
+                if (string.IsNullOrEmpty(connectionString))
+                {
+                    options.UseInMemoryDatabase("TaskDb");
+                }
+                else
+                {
+                    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+                }
+            });
 
-            // Add CORS service
             builder.Services.AddCors(options =>
             {
                 options.AddDefaultPolicy(policy =>
@@ -33,7 +41,7 @@ namespace TaskListAPIProject
 
             EnsureDatabaseCreated(app);
 
-            // Configure the HTTP request pipeline.
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -41,8 +49,7 @@ namespace TaskListAPIProject
             }
 
             app.UseHttpsRedirection();
-
-            // Use CORS
+            
             app.UseCors();
 
             app.UseAuthorization();
@@ -57,5 +64,6 @@ namespace TaskListAPIProject
             var dbContext = scope.ServiceProvider.GetRequiredService<TaskDbContext>();
             dbContext.Database.EnsureCreated();
         }
+        
     }
 }

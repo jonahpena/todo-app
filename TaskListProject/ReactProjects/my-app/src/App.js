@@ -1,12 +1,16 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import TaskList from "./TaskList/TaskList.js";
+import AnimatedIcon from "./AnimatedIcon";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <TaskList listId={1} />
+        <Routes>
+          <Route path="/" element={<AnimatedIcon />} />
+          <Route path="/tasklist" element={<TaskList listId={1} />} />
+        </Routes>
       </div>
     </Router>
   );

@@ -108,7 +108,7 @@ function TaskList() {
   const hasCompletedItems = completedItems.length > 0;
 
   return (
-    <div className="container">
+    <div className="container tasklist-container">
       <form
         onSubmit={(e) => {
           e.preventDefault();

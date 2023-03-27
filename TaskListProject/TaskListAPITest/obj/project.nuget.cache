@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UFSri9dajPybQ4cw/LiU8eBrCCebz92uqUDj2nAycsf4o1ThqN4FoViiQ/w70SM20q46h4Q+AN8UaFwhYjzXfQ==",
+  "dgSpecHash": "WOkh/AzcpqgWgSzNbwgvkvUh728SQPAueykY7Qgqjo0XR7MbHCp/cAnA4GhvLXBiGIriHRfKrrHe/gAk1UDt/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj",
   "expectedPackageFiles": [
@@ -110,7 +110,7 @@
     "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.localization\\2.2.0\\microsoft.extensions.localization.2.2.0.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\2.2.0\\microsoft.extensions.localization.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
-    "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0-preview.2.23128.3\\microsoft.extensions.logging.abstractions.8.0.0-preview.2.23128.3.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.logging.configuration\\6.0.0\\microsoft.extensions.logging.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.logging.console\\6.0.0\\microsoft.extensions.logging.console.6.0.0.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\microsoft.extensions.logging.debug\\6.0.0\\microsoft.extensions.logging.debug.6.0.0.nupkg.sha512",

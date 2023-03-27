@@ -4,7 +4,8 @@ using TaskListAPIProject.Controllers;
 using TaskListAPIProject.Data;
 using TaskListAPIProject.Models;
 
-namespace TaskListAPIProject.Tests
+
+namespace TaskListAPITest
 {
     public class TaskItemsControllerTests
     {
@@ -128,6 +129,20 @@ namespace TaskListAPIProject.Tests
         }
         
         [Fact]
+        public async Task DeleteTaskItem_ReturnsNotFoundOnNonExistentTask()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
+
+            // Act
+            var result = await controller.DeleteTaskItem(1);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+        
+        [Fact]
         public async Task PutTaskItem_UpdatesTask()
         {
             // Arrange
@@ -146,22 +161,14 @@ namespace TaskListAPIProject.Tests
             // Assert
             Assert.IsType<NoContentResult>(result);
             var task = await dbContext.Tasks.FindAsync(1);
-            Assert.Equal(updatedTask.Id, task.Id);
-            Assert.Equal(updatedTask.Title, task.Title);
-            Assert.Equal(updatedTask.Completed, task.Completed);
-        }
-        [Fact]
-        public async Task DeleteTaskItem_ReturnsNotFoundOnNonExistentTask()
-        {
-            // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new TaskItemsController(dbContext);
+            
+            if (task != null)
+            {
+                Assert.Equal(updatedTask.Id, task.Id);
+                Assert.Equal(updatedTask.Title, task.Title);
+                Assert.Equal(updatedTask.Completed, task.Completed);
+            }
 
-            // Act
-            var result = await controller.DeleteTaskItem(1);
-
-            // Assert
-            Assert.IsType<NotFoundResult>(result);
         }
         
         [Fact]
@@ -179,22 +186,7 @@ namespace TaskListAPIProject.Tests
             // Assert
             Assert.IsType<NotFoundResult>(result);
         }
-        
-        
-        [Fact]
-        public void TaskItem_DescriptionProperty()
-        {
-            // Arrange
-            var taskItem = new TaskItem();
-            var description = "Sample description";
 
-            // Act
-            taskItem.Description = description;
-
-            // Assert
-            Assert.Equal(description, taskItem.Description);
-        }
-        
         [Fact]
         public async Task PutTaskItem_ReturnsBadRequest_WhenIdMismatch()
         {
@@ -235,6 +227,19 @@ namespace TaskListAPIProject.Tests
             Assert.IsType<BadRequestResult>(result);
         }
         
+        [Fact]
+        public void TaskItem_DescriptionProperty()
+        {
+            // Arrange
+            var taskItem = new TaskItem();
+            var description = "Sample description";
+
+            // Act
+            taskItem.Description = description;
+
+            // Assert
+            Assert.Equal(description, taskItem.Description);
+        }
         
     }
 
