@@ -1,0 +1,145 @@
+.tasklist-container {
+  max-width: 419px;
+  height: 926px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.tasklist-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tasklist-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 4px;
+}
+
+.tasklist-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.completed-item-header {
+  margin-right: 255px;
+  margin-bottom: -5px;
+  font-size: 24px;
+}
+
+.input-field {
+  margin-right: 117px;
+  font-family: "Nunito", sans-serif;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  margin-right: 40px;
+}
+
+.incomplete-delete-icon {
+  float: right;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.completed-delete-icon {
+  float: right;
+  margin-top: -28px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.list-item-inner {
+  margin-top: 4px;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.list-item {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px 20px;
+  display: flex;
+
+  align-items: flex-start;
+  width: 375px;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.completed-list-item {
+  display: flex;
+  align-items: flex-start;
+  width: 375px;
+}
+
+.completed-list-bubble {
+  background-color: #66b4c2;
+  border-radius: 15px;
+  padding: 20px 20px;
+  align-items: center;
+  width: 375px;
+  margin: auto;
+  margin-top: 20px;
+  opacity: 0.8;
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.list-item-text {
+  font-family: "Nunito", sans-serif;
+  width: 270px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.completed-list-item-text {
+  opacity: 0.8;
+  margin-top: 3px;
+  text-align: left;
+  width: 270px;
+  text-decoration: line-through;
+  font-family: "Nunito", sans-serif;
+}
+
+.completed-time {
+  font-size: 10px;
+  margin-left: 240px; /* Adjust margin to align with right side of container */
+}
+
+.complete-button {
+  display: flex;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 6px;
+}
+
+.complete-button {
+  margin-top: 40px;
+  background-color: transparent;
+  border: 2px solid #66b4c2;
+  color: #66b4c2;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.complete-button:hover {
+  background-color: #66b4c2;
+  border-color: #66b4c2;
+  color: white;
+}
+
+.error-message {
+  color: rgb(247, 63, 63);
+}
