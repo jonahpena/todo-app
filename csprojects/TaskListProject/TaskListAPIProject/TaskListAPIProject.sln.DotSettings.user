@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\jonah\AppData\Local\JetBrains\Rider2022.2\resharper-host\temp\Rider\vAny\CoverageData\_TaskListAPIProject.1023192242\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4963ab0a_002D1f05_002D445c_002D8858_002D2a431ca81840/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TaskItemsControllerTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest" Presentation="&amp;lt;TaskListAPITest&amp;gt;" /&gt;&#xD;
+    &lt;Project Location="C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\TaskListAPIIntegrationTest" Presentation="&amp;lt;TaskListAPIIntegrationTest&amp;gt;" /&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=69e3eec9_002D61cd_002D481b_002D972c_002D08cc809482ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TaskItemsControllerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::530212A8-AF74-4DBF-96FA-D7AB69A8C453::net6.0::TaskListAPIProject.Tests.TaskItemsControllerTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=94be8065_002Ddaaa_002D4b9b_002D829a_002Dae25a89a443c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>
