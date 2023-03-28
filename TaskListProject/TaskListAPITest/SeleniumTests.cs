@@ -1,26 +1,28 @@
-using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using Xunit;
+
+using Assert = Xunit.Assert;
 
 namespace TaskListAPITest
 {
+    [TestCaseOrderer("TaskListAPITest.TestMethodOrderer", "TaskListAPITest")]
     public class SeleniumTests : IClassFixture<CustomWebApplicationFactory>, IDisposable
     {
+        public CustomWebApplicationFactory Factory { get; }
         private readonly FirefoxDriver _driver;
-        private readonly CustomWebApplicationFactory _factory;
 
         public SeleniumTests(CustomWebApplicationFactory factory)
         {
-            
-            _factory = factory;
-
+            Factory = factory;
             FirefoxOptions options = new FirefoxOptions();
             options.AcceptInsecureCertificates = true;
 
             _driver = new FirefoxDriver(options);
         }
+        
+        
         [Fact]
+        [TestOrder(1)]
         public void AppLoadsSuccessfully()
         {
             _driver.Navigate().GoToUrl("http://localhost:3000");
@@ -37,6 +39,8 @@ namespace TaskListAPITest
                 Assert.True(element.Displayed);
             }
         }
+        
+        [TestOrder(2)]
         [Fact]
         public void CreateTask()
         {
@@ -58,9 +62,7 @@ namespace TaskListAPITest
             Assert.NotNull(newTask);
         }
 
-
-
-        
+        [TestOrder(3)]
         [Fact]
         public void CompleteTask()
         {
@@ -70,25 +72,26 @@ namespace TaskListAPITest
             inputField.SendKeys("New task");
             Thread.Sleep(2000);
             inputField.SendKeys(Keys.Enter);
+            Thread.Sleep(2000);
 
             // Find the checkbox for the first task
-            // Find the checkbox for the first task
-            IWebElement firstTaskCheckbox = _driver.FindElement(By.CssSelector("li[data-testid='task-item']:first-child input[type='checkbox']"));
+            IWebElement firstTaskCheckbox = _driver.FindElements(By.CssSelector("input[data-testid='task-checkbox']"))[0];
 
+            Thread.Sleep(2000);
             // Click the checkbox using JavaScript
-            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+            IJavaScriptExecutor js = _driver;
             js.ExecuteScript("arguments[0].click();", firstTaskCheckbox);
             Thread.Sleep(2000);
 
-            // Verify that the first task is marked as completed
-            bool isCompleted = Convert.ToBoolean(firstTaskCheckbox.GetAttribute("completed"));
+            // Refetch the checkbox element
+            firstTaskCheckbox = _driver.FindElement(By.CssSelector("input[data-testid='task-checkbox']:first-child"));
+
+            bool isCompleted = Convert.ToBoolean(firstTaskCheckbox.GetAttribute("checked"));
             Assert.True(isCompleted);
         }
-
-
-
+        
         [Fact]
-        public void DeleteTask()
+        [TestOrder(4)]        public void DeleteTask()
         {
             _driver.Navigate().GoToUrl("http://localhost:3000/tasklist");
 
@@ -99,8 +102,6 @@ namespace TaskListAPITest
             // Verify that the first task was deleted
             Assert.Throws<NoSuchElementException>(() => _driver.FindElement(By.CssSelector("li:first-child")));
         }
-
-
 
         public void Dispose()
         {

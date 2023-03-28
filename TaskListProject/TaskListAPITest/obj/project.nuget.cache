@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8hTyx7CzwHh36xz4oTZZ+qMu0TO4aSXPecfVpUGgwoSzURjDVd29f8aMi6aY9WZ6lIJdmc7npHz7ok0qW8VR9Q==",
+  "dgSpecHash": "x5WAmbfuI5kIWxC4jBdUu2LiAfUdpYLsWn5uPifTYT+9fgRuvbdw0CTc1lzJ6iFWyZaOSMKUWwu/O5rnHPodjA==",
   "success": true,
   "projectFilePath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj",
   "expectedPackageFiles": [
@@ -151,6 +151,7 @@
     "/Users/jonahpena/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/Users/jonahpena/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/jonahpena/.nuget/packages/moq/4.18.4/moq.4.18.4.nupkg.sha512",
+    "/Users/jonahpena/.nuget/packages/mstest.testframework/3.0.2/mstest.testframework.3.0.2.nupkg.sha512",
     "/Users/jonahpena/.nuget/packages/mysqlconnector/2.2.5/mysqlconnector.2.2.5.nupkg.sha512",
     "/Users/jonahpena/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
     "/Users/jonahpena/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",

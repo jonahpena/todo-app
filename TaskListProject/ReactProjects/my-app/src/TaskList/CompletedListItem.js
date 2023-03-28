@@ -22,6 +22,8 @@ function CompletedListItem({
         <div className="completed-list-item">
           <label className="filled-in">
             <input
+              data-testid="task-checkbox"
+              data-index={0} // Add this line
               type="checkbox"
               className="complete-button"
               checked
