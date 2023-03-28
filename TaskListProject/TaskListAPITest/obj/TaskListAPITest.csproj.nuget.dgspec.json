@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj": {}
+    "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj": {
+    "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj",
+        "projectUniqueName": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj",
         "projectName": "TaskListAPIProject",
-        "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj",
-        "packagesPath": "C:\\Users\\jonah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\obj\\",
+        "projectPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj",
+        "packagesPath": "/Users/jonahpena/.nuget/packages/",
+        "outputPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jonah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/jonahpena/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -138,36 +136,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj": {
+    "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj",
+        "projectUniqueName": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj",
         "projectName": "TaskListAPITest",
-        "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj",
-        "packagesPath": "C:\\Users\\jonah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\obj\\",
+        "projectPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj",
+        "packagesPath": "/Users/jonahpena/.nuget/packages/",
+        "outputPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jonah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/jonahpena/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj": {
-                "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj"
+              "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj": {
+                "projectPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj"
               }
             }
           }
@@ -232,6 +228,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -273,7 +273,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }

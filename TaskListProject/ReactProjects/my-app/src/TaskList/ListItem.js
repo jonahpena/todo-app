@@ -49,7 +49,7 @@ function ListItem({
   }, [editingItemIdRef.current, item.title]);
 
   return (
-    <li>
+    <li data-testid="task-item">
       <div className="list-item">
         <div className="list-item-inner">
           <label>
@@ -57,6 +57,7 @@ function ListItem({
               type="checkbox"
               onChange={() => handleCompleteItem(item, index)}
               checked={false}
+              data-testid="task-checkbox"
             />
             <span></span>
           </label>
@@ -82,6 +83,7 @@ function ListItem({
         <div
           className="material-icons incomplete-delete-icon"
           onClick={() => handleRemoveItem(item.id)}
+          data-testid="delete-button"
         >
           close
         </div>{" "}

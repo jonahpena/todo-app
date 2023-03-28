@@ -5,13 +5,20 @@ using Xunit;
 
 namespace TaskListAPITest
 {
-    public class SeleniumTests : IDisposable
+    public class SeleniumTests : IClassFixture<CustomWebApplicationFactory>, IDisposable
     {
-        private readonly IWebDriver _driver;
+        private readonly FirefoxDriver _driver;
+        private readonly CustomWebApplicationFactory _factory;
 
-        public SeleniumTests()
+        public SeleniumTests(CustomWebApplicationFactory factory)
         {
-            _driver = new FirefoxDriver();
+            
+            _factory = factory;
+
+            FirefoxOptions options = new FirefoxOptions();
+            options.AcceptInsecureCertificates = true;
+
+            _driver = new FirefoxDriver(options);
         }
         [Fact]
         public void AppLoadsSuccessfully()
@@ -30,39 +37,55 @@ namespace TaskListAPITest
                 Assert.True(element.Displayed);
             }
         }
-        
         [Fact]
         public void CreateTask()
         {
-            _driver.Navigate().GoToUrl("http://localhost:3000/tasklist");
+            _driver.Navigate().GoToUrl("http://localhost:3000/tasklist");   
 
             // Find the input field for the new task and enter a task name
             IWebElement inputField = _driver.FindElement(By.Id("todo-input"));
+   
             inputField.SendKeys("New task");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             inputField.SendKeys(Keys.Enter);
-            
-            Thread.Sleep(1000);
-            inputField.SendKeys(Keys.Enter);
+            Thread.Sleep(2000);
+
+            // Get all task items
+            var taskItems = _driver.FindElements(By.CssSelector("[data-testid='task-item']"));
 
             // Verify that the new task was added to the list
-            IWebElement newTask = _driver.FindElement(By.XPath("//li[contains(text(),'New task')]"));
+            var newTask = taskItems.FirstOrDefault(task => task.Text.Contains("New task"));
             Assert.NotNull(newTask);
         }
+
+
+
         
         [Fact]
         public void CompleteTask()
         {
             _driver.Navigate().GoToUrl("http://localhost:3000/tasklist");
 
-            // Find the checkbox for the first task and click it
-            IWebElement firstTaskCheckbox = _driver.FindElement(By.CssSelector("li:first-child input[type=checkbox]"));
-            firstTaskCheckbox.Click();
+            IWebElement inputField = _driver.FindElement(By.Id("todo-input"));
+            inputField.SendKeys("New task");
+            Thread.Sleep(2000);
+            inputField.SendKeys(Keys.Enter);
+
+            // Find the checkbox for the first task
+            // Find the checkbox for the first task
+            IWebElement firstTaskCheckbox = _driver.FindElement(By.CssSelector("li[data-testid='task-item']:first-child input[type='checkbox']"));
+
+            // Click the checkbox using JavaScript
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+            js.ExecuteScript("arguments[0].click();", firstTaskCheckbox);
+            Thread.Sleep(2000);
 
             // Verify that the first task is marked as completed
-            IWebElement firstTask = _driver.FindElement(By.CssSelector("li:first-child"));
-            Assert.Contains("completed", firstTask.GetAttribute("class"));
+            bool isCompleted = Convert.ToBoolean(firstTaskCheckbox.GetAttribute("completed"));
+            Assert.True(isCompleted);
         }
+
+
 
         [Fact]
         public void DeleteTask()
@@ -70,12 +93,14 @@ namespace TaskListAPITest
             _driver.Navigate().GoToUrl("http://localhost:3000/tasklist");
 
             // Find the button to delete the first task and click it
-            IWebElement firstTaskDeleteButton = _driver.FindElement(By.CssSelector("li:first-child button.delete-button"));
+            IWebElement firstTaskDeleteButton = _driver.FindElement(By.CssSelector("li:first-child [data-testid='delete-button']"));
             firstTaskDeleteButton.Click();
 
             // Verify that the first task was deleted
             Assert.Throws<NoSuchElementException>(() => _driver.FindElement(By.CssSelector("li:first-child")));
         }
+
+
 
         public void Dispose()
         {

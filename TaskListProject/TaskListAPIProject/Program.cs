@@ -26,15 +26,16 @@ namespace TaskListAPIProject
                     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
                 }
             });
-
+            
             builder.Services.AddCors(options =>
             {
-                options.AddDefaultPolicy(policy =>
-                {
-                    policy.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
+                options.AddPolicy("AllowLocalhost3000",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000", "https://localhost:3000")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
             });
 
             var app = builder.Build();
@@ -50,7 +51,7 @@ namespace TaskListAPIProject
 
             app.UseHttpsRedirection();
             
-            app.UseCors();
+            app.UseCors("AllowLocalhost3000");
 
             app.UseAuthorization();
 

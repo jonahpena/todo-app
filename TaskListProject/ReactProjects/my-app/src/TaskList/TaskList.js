@@ -160,6 +160,7 @@ function TaskList() {
           <button
             className="complete-button waves-effect waves-light btn"
             onClick={() => setShowCompletedItems(!showCompletedItems)}
+            data-testid="delete-button"
           >
             Completed
           </button>
