@@ -26,7 +26,13 @@ function AddItemForm({ onAddItem }) {
           <label htmlFor="todo-input">Enter your task</label>
         </div>
         <div>
-          <button className="waves-effect">Add</button>
+          <button
+            onClick={handleSubmit}
+            id="addTaskButton"
+            className="waves-effect"
+          >
+            Add
+          </button>
         </div>
       </div>
     </form>

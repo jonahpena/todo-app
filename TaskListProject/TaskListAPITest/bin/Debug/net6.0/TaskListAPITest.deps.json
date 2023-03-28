@@ -3005,6 +3005,20 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "Selenium.WebDriver/4.8.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/WebDriver.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/WebDriver.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/6.2.3": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
@@ -4033,6 +4047,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.13",
           "Moq": "4.18.4",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
+          "Selenium.WebDriver": "4.8.2",
           "Swashbuckle.AspNetCore": "6.2.3",
           "xunit": "2.4.2",
           "xunit.extensibility.core": "2.4.2"
@@ -6952,6 +6967,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "Selenium.WebDriver/4.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gNCaZrR32U2e9pyS+HXSqNHdcrIbqulOkcmycFoDL/tM5la4tELaZ3FpPRbq7tjJK3cKs5lLqVVFM9PfY1WW5g==",
+      "path": "selenium.webdriver/4.8.2",
+      "hashPath": "selenium.webdriver.4.8.2.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.2.3": {
       "type": "package",

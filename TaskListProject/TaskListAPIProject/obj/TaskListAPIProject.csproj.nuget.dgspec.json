@@ -90,6 +90,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

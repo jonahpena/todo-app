@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WOkh/AzcpqgWgSzNbwgvkvUh728SQPAueykY7Qgqjo0XR7MbHCp/cAnA4GhvLXBiGIriHRfKrrHe/gAk1UDt/A==",
+  "dgSpecHash": "5WJA2v7Ki1FXrTbYDGsW07tD70gaAiHFFBfTpEAHphbv24WxQesJWxKoovW//9oXcija3s4NCFqYz105R3p7mw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj",
   "expectedPackageFiles": [
@@ -181,6 +181,7 @@
     "C:\\Users\\jonah\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\jonah\\.nuget\\packages\\selenium.webdriver\\4.8.2\\selenium.webdriver.4.8.2.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\jonah\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

@@ -1586,3 +1586,7 @@ C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\ne
 C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\net6.0\Microsoft.Extensions.Hosting.dll
 C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\net6.0\System.IO.Pipelines.dll
 >>>>>>> master
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPIProject\bin\Debug\net6.0\WebDriver.dll

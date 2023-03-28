@@ -660,3 +660,7 @@ C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\bin\Debug\net6.
 C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\bin\Debug\net6.0\System.IO.Pipelines.dll
 C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\obj\Debug\net6.0\MvcTestingAppManifest.json
 >>>>>>> master
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\bin\Debug\net6.0\WebDriver.dll
