@@ -158,6 +158,7 @@ function TaskList() {
       {hasCompletedItems && (
         <div className="completed-items-dropdown">
           <button
+            id="completed-button"
             className="complete-button waves-effect waves-light btn"
             onClick={() => setShowCompletedItems(!showCompletedItems)}
           >

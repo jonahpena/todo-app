@@ -36,12 +36,13 @@ function CompletedListItem({
         </div>{" "}
         <div className="completed-delete-icon">
           {" "}
-          <span
+          <div
+            data-testid="completed-delete-button"
             className="material-icons"
             onClick={() => handleRemoveItem(item.id)}
           >
             close
-          </span>
+          </div>
         </div>
         {/* <span className="completed-time">{item.time}</span> */}
       </div>

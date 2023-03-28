@@ -14470,32 +14470,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/jonahpena/.nuget/packages/": {}
+    "C:\\Users\\jonah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj",
+      "projectUniqueName": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj",
       "projectName": "TaskListAPITest",
-      "projectPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/TaskListAPITest.csproj",
-      "packagesPath": "/Users/jonahpena/.nuget/packages/",
-      "outputPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPITest/obj/",
+      "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\TaskListAPITest.csproj",
+      "packagesPath": "C:\\Users\\jonah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPITest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jonahpena/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jonah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj": {
-              "projectPath": "/Users/jonahpena/csprojects/csprojects/TaskListProject/TaskListAPIProject/TaskListAPIProject.csproj"
+            "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj": {
+              "projectPath": "C:\\Users\\jonah\\github\\csprojects\\TaskListProject\\TaskListAPIProject\\TaskListAPIProject.csproj"
             }
           }
         }
@@ -14609,7 +14611,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
