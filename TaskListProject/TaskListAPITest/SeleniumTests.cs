@@ -9,12 +9,10 @@ namespace TaskListAPITest
     [TestCaseOrderer("TaskListAPITest.TestMethodOrderer", "TaskListAPITest")]
     public class SeleniumTests : IClassFixture<CustomWebApplicationFactory>, IDisposable
     {
-        public CustomWebApplicationFactory Factory { get; }
         private readonly FirefoxDriver _driver;
 
         public SeleniumTests(CustomWebApplicationFactory factory)
         {
-            Factory = factory;
             FirefoxOptions options = new FirefoxOptions();
             options.AcceptInsecureCertificates = true;
 
