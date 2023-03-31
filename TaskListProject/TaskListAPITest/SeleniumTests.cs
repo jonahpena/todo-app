@@ -73,24 +73,20 @@ namespace TaskListAPITest
         {
             _driver.Navigate().GoToUrl("http://localhost:3000/tasklist");
 
-            Thread.Sleep(1000);
             // Find the checkbox for the first task
+            Thread.Sleep(1000);
             IWebElement firstTaskCheckbox = _driver.FindElements(By.CssSelector("input[data-testid='task-checkbox']"))[0];
             Thread.Sleep(1000);
             
             // Click the checkbox using JavaScript
             IJavaScriptExecutor js = _driver;
             js.ExecuteScript("arguments[0].click();", firstTaskCheckbox);
-    
-            
             Thread.Sleep(1000);
             
             // find the button element by its ID or other locators
             IWebElement buttonElement = _driver.FindElement(By.Id("completed-button"));
-
-// click the button
-            buttonElement.Click();
             
+            buttonElement.Click();
             Thread.Sleep(1000);
             
             // Refetch the checkbox element

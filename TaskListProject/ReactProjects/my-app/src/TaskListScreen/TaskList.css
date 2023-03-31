@@ -1,3 +1,23 @@
+.tasklist-container {
+  max-width: 419px;
+  height: 926px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.tasklist-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tasklist-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 4px;
+}
+
+.tasklist-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
 .completed-item-header {
   margin-right: 255px;
   margin-bottom: -5px;
@@ -5,7 +25,7 @@
 }
 
 .input-field {
-  margin-right: 40px;
+  margin-right: 117px;
   font-family: "Nunito", sans-serif;
 }
 
@@ -16,21 +36,51 @@
   margin-right: 40px;
 }
 
-.list-item {
+.incomplete-delete-icon {
+  float: right;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.completed-delete-icon {
+  float: right;
+  margin-top: -28px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.task-item-inner {
+  margin-top: 4px;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.task-item {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 20px 20px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+
+  align-items: flex-start;
   width: 375px;
   margin: auto;
   margin-top: 20px;
-
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.completed-list-bubble {
+.completed-task-item {
+  display: flex;
+  align-items: flex-start;
+  width: 375px;
+}
+
+.completed-task-bubble {
   background-color: #66b4c2;
   border-radius: 15px;
   padding: 20px 20px;
@@ -42,19 +92,19 @@
 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
-.completed-list-item {
-  display: flex;
-  align-items: flex-start;
-  width: 375px;
-}
 
-.list-item-text {
-  margin-bottom: 5px;
+.task-item-text {
   font-family: "Nunito", sans-serif;
+  width: 270px;
+  margin-top: 5px;
+  text-align: left;
 }
 
-.completed-list-item-text {
+.completed-task-item-text {
   opacity: 0.8;
+  margin-top: 3px;
+  text-align: left;
+  width: 270px;
   text-decoration: line-through;
   font-family: "Nunito", sans-serif;
 }
@@ -92,15 +142,4 @@
 
 .error-message {
   color: rgb(247, 63, 63);
-}
-
-input[type="checkbox"]:checked::before {
-  content: "\2713";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(183, 255, 183); /* Change the color to your desired color */
-  font-size: 20px;
 }

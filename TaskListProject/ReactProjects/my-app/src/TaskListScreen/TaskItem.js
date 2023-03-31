@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./TaskList.css";
 
-function ListItem({
+function TaskItem({
   item,
   index,
   handleCompleteItem,
@@ -50,8 +50,8 @@ function ListItem({
 
   return (
     <li data-testid="task-item">
-      <div className="list-item">
-        <div className="list-item-inner">
+      <div className="task-item">
+        <div className="task-item-inner">
           <label>
             <input
               type="checkbox"
@@ -62,7 +62,7 @@ function ListItem({
             <span></span>
           </label>
         </div>
-        <div className="list-item-text" onClick={handleClick}>
+        <div className="task-item-text" onClick={handleClick}>
           {isEditing ? (
             <input
               ref={inputRef}
@@ -94,4 +94,4 @@ function ListItem({
   );
 }
 
-export default ListItem;
+export default TaskItem;

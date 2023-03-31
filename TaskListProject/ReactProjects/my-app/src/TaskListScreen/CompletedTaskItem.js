@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskList.css";
 
-function CompletedListItem({
+function CompletedTaskItem({
   item,
   completedItems,
   handleMoveBackToTask,
@@ -17,9 +17,9 @@ function CompletedListItem({
   };
 
   return (
-    <li className="completed-list-bubble">
+    <li className="completed-task-bubble">
       <div>
-        <div className="completed-list-item">
+        <div className="completed-task-item">
           <label className="filled-in">
             <input
               data-testid="task-checkbox"
@@ -32,7 +32,7 @@ function CompletedListItem({
             />
             <span></span>
           </label>
-          <div className="completed-list-item-text">{item.title}</div>
+          <div className="completed-task-item-text">{item.title}</div>
         </div>{" "}
         <div className="completed-delete-icon">
           {" "}
@@ -50,4 +50,4 @@ function CompletedListItem({
   );
 }
 
-export default CompletedListItem;
+export default CompletedTaskItem;

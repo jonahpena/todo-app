@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./TaskList.css";
 
-function AddItemForm({ onAddItem }) {
+function AddTaskItemForm({ onAddItem }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -39,4 +39,4 @@ function AddItemForm({ onAddItem }) {
   );
 }
 
-export default AddItemForm;
+export default AddTaskItemForm;

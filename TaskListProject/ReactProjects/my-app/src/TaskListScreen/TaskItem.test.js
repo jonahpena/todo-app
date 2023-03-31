@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ListItem from "./ListItem";
+import TaskItem from "./TaskItem";
 
 test("renders ListItem component", () => {
   const item = {
@@ -8,7 +8,7 @@ test("renders ListItem component", () => {
   };
 
   render(
-    <ListItem
+    <TaskItem
       item={item}
       index={0}
       handleRemoveItem={() => {}}

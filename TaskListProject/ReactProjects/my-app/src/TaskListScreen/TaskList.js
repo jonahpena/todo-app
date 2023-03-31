@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./TaskList.css";
-import ListItem from "./ListItem";
-import CompletedListItem from "./CompletedListItem";
+import TaskItem from "./TaskItem";
+import CompletedListItem from "./CompletedTaskItem";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -25,7 +25,7 @@ function TaskList() {
       });
   }, []);
 
-  const handleAddItem = () => {
+  const handleAddTaskItem = () => {
     if (inputValue.trim()) {
       // POST the new task to the API
       fetch(`${API_URL}`, {
@@ -112,7 +112,7 @@ function TaskList() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handleAddItem();
+          handleAddTaskItem();
         }}
         data-testid="task-form"
       >
@@ -142,7 +142,7 @@ function TaskList() {
 
       <ul testis="task-list">
         {items.reverse().map((item, index) => (
-          <ListItem
+          <TaskItem
             key={index}
             item={item}
             index={index}
@@ -170,7 +170,7 @@ function TaskList() {
                 <CompletedListItem
                   key={index}
                   item={item}
-                  completedItems={completedItems} // Add this line
+                  completedItems={completedItems}
                   handleRemoveItem={handleRemoveItem}
                   handleMoveBackToTask={handleMoveBackToTask}
                 />

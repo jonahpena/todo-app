@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CompletedListItem from "./CompletedListItem";
+import CompletedTaskItem from "./CompletedTaskItem";
 
 test("renders CompletedListItem component", () => {
   const item = {
@@ -8,7 +8,7 @@ test("renders CompletedListItem component", () => {
   };
 
   render(
-    <CompletedListItem
+    <CompletedTaskItem
       item={item}
       completedItems={[]}
       handleMoveBackToTask={() => {}}
