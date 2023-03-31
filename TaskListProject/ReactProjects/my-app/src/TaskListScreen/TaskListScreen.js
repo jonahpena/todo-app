@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./TaskListScreen.css";
 import TaskItem from "./TaskItems/TaskItem";
 import CompletedListItem from "./TaskItems/CompletedTaskItem";
@@ -52,10 +52,11 @@ function TaskListScreen() {
       setItems([item, ...items]);
     });
   };
-  const handleUpdateItem = (id, newTitle) => {
+
+  const handleUpdateItem = useCallback((itemId, newTitle) => {
     // Update the task title in the local state
     const updatedItems = items.map((item) => {
-      if (item.id === id) {
+      if (item.id === itemId) {
         return { ...item, title: newTitle };
       }
       return item;
@@ -67,11 +68,11 @@ function TaskListScreen() {
 
     // PUT the updated task title to the API
     const updatedTask = {
-      ...updatedItems.find((item) => item.id === id),
+      ...updatedItems.find((item) => item.id === itemId),
       title: newTitle,
     };
-    updateTask(id, updatedTask);
-  };
+    updateTask(itemId, updatedTask);
+  });
 
   const handleEditingTask = (id) => {
     if (editingItemIdRef.current !== null && editingItemIdRef.current !== id) {

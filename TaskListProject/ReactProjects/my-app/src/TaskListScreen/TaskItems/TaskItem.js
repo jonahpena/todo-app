@@ -16,10 +16,10 @@ function TaskItem({
   const inputRef = useRef(null);
 
   useEffect(() => {
-    if (!isEditing && editedTitle.trim()) {
+    if (!isEditing && editedTitle.trim() && editedTitle !== item.title) {
       handleUpdateItem(item.id, editedTitle);
     }
-  }, [isEditing]);
+  }, [isEditing, editedTitle, handleUpdateItem, item.id, item.title]);
 
   useEffect(() => {
     if (isEditing) {
@@ -46,7 +46,7 @@ function TaskItem({
       setIsEditing(false);
       setEditedTitle(item.title);
     }
-  }, [editingItemIdRef.current, item.title]);
+  }, [editingItemIdRef, item.id, item.title]);
 
   return (
     <li data-testid="task-item">
