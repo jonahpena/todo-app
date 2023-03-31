@@ -122,13 +122,13 @@ namespace TaskListAPITest
             
             Thread.Sleep(1500);
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            IWebElement firstCompletedTaskDeleteButton = _driver.FindElement(By.CssSelector(".completed-list-item + .completed-delete-icon [data-testid='completed-delete-button']"));
+            IWebElement firstCompletedTaskDeleteButton = _driver.FindElement(By.CssSelector(".completed-task-item + .completed-delete-icon [data-testid='completed-delete-button']"));
             firstCompletedTaskDeleteButton.Click();
             
             Thread.Sleep(1000);
      
             // Verify that the first completed task was deleted
-            Assert.Throws<NoSuchElementException>(() => _driver.FindElement(By.CssSelector(".completed-items-dropdown li.completed-list-bubble:first-child")));        }
+            Assert.Throws<NoSuchElementException>(() => _driver.FindElement(By.CssSelector(".completed-items-dropdown li.completed-task-bubble:first-child")));        }
 
 
         public void Dispose()
