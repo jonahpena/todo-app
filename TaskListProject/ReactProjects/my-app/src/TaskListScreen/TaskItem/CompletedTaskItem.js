@@ -44,7 +44,6 @@ function CompletedTaskItem({
             close
           </div>
         </div>
-        {/* <span className="completed-time">{item.time}</span> */}
       </div>
     </li>
   );

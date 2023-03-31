@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./TaskListScreen.css";
-import TaskItem from "./TaskItems/TaskItem";
-import CompletedListItem from "./TaskItems/CompletedTaskItem";
+import TaskItem from "./TaskItem/TaskItem";
+import CompletedListItem from "./TaskItem/CompletedTaskItem";
 import { fetchTasks, addTask, deleteTask, updateTask } from "../api/tasks";
 
 function TaskListScreen() {
@@ -53,26 +53,29 @@ function TaskListScreen() {
     });
   };
 
-  const handleUpdateItem = useCallback((itemId, newTitle) => {
-    // Update the task title in the local state
-    const updatedItems = items.map((item) => {
-      if (item.id === itemId) {
-        return { ...item, title: newTitle };
-      }
-      return item;
-    });
-    setItems(updatedItems);
+  const handleUpdateItem = useCallback(
+    (itemId, newTitle) => {
+      // Update the task title in the local state
+      const updatedItems = items.map((item) => {
+        if (item.id === itemId) {
+          return { ...item, title: newTitle };
+        }
+        return item;
+      });
+      setItems(updatedItems);
 
-    // Reset the editingItemId state
-    editingItemIdRef.current = null;
+      // Reset the editingItemId state
+      editingItemIdRef.current = null;
 
-    // PUT the updated task title to the API
-    const updatedTask = {
-      ...updatedItems.find((item) => item.id === itemId),
-      title: newTitle,
-    };
-    updateTask(itemId, updatedTask);
-  });
+      // PUT the updated task title to the API
+      const updatedTask = {
+        ...updatedItems.find((item) => item.id === itemId),
+        title: newTitle,
+      };
+      updateTask(itemId, updatedTask);
+    },
+    [items]
+  );
 
   const handleEditingTask = (id) => {
     if (editingItemIdRef.current !== null && editingItemIdRef.current !== id) {
