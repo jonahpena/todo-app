@@ -1,5 +1,5 @@
 import React from "react";
-import "./TaskListScreen.css";
+import "../TaskListScreen.css";
 
 function CompletedTaskItem({
   item,
@@ -23,7 +23,7 @@ function CompletedTaskItem({
           <label className="filled-in">
             <input
               data-testid="task-checkbox"
-              data-index={0} // Add this line
+              data-index={0}
               type="checkbox"
               className="complete-button"
               checked

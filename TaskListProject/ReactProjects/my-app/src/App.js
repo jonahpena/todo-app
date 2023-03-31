@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import TaskList from "./TaskListScreen/TaskList.js";
+import TaskList from "./TaskListScreen/TaskListScreen.js";
 import AnimatedIcon from "./IntoScreen/AnimatedIcon";
 
 function App() {

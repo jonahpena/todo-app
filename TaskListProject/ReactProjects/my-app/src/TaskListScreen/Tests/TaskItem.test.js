@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TaskItem from "./TaskItem";
+import TaskItem from "../TaskItems/TaskItem";
 
 test("renders ListItem component", () => {
   const item = {

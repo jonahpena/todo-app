@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CompletedTaskItem from "./CompletedTaskItem";
+import CompletedTaskItem from "../TaskItems/CompletedTaskItem";
 
 test("renders CompletedListItem component", () => {
   const item = {

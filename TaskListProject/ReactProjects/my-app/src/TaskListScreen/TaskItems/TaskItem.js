@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import "./TaskListScreen.css";
+import "../TaskListScreen.css";
 
 function TaskItem({
   item,

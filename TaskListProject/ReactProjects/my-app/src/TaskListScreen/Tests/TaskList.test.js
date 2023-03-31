@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TaskList from "./TaskList";
+import TaskList from "../TaskListScreen";
 
 describe("TaskList", () => {
   it("should render the input label correctly", () => {

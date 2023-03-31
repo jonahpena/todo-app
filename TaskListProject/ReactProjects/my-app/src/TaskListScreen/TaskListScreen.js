@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./TaskListScreen.css";
-import TaskItem from "./TaskItem";
-import CompletedListItem from "./CompletedTaskItem";
+import TaskItem from "./TaskItems/TaskItem";
+import CompletedListItem from "./TaskItems/CompletedTaskItem";
 import { fetchTasks, addTask, deleteTask, updateTask } from "../api/tasks";
 
-function TaskList() {
+function TaskListScreen() {
   const [items, setItems] = useState([]);
   const [completedItems, setCompletedItems] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -157,4 +157,4 @@ function TaskList() {
   );
 }
 
-export default TaskList;
+export default TaskListScreen;
