@@ -8,8 +8,21 @@
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=593dd6a4_002D2fbe_002D4c73_002Dabf5_002D42746d68f780/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=593dd6a4_002D2fbe_002D4c73_002Dabf5_002D42746d68f780/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ca26064b_002D534b_002D4e22_002Da58e_002D918e2dcf91f3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="PostTaskItem_CreatesNewTask" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::41FD97E1-EF64-4C6E-86A6-5A10D7C98548::net6.0::TaskListAPITest.TaskItemsControllerTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;ProjectFile&gt;41FD97E1-EF64-4C6E-86A6-5A10D7C98548/f:SeleniumTests.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e15802c3_002Dec52_002D4703_002D9b35_002D192ceec0b568/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PutTaskItem_ReturnsBadRequest_WhenIdMismatch" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::41FD97E1-EF64-4C6E-86A6-5A10D7C98548::net6.0::TaskListAPITest.TaskItemsControllerTests.PutTaskItem_ReturnsBadRequest_WhenIdMismatch&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 </wpf:ResourceDictionary>

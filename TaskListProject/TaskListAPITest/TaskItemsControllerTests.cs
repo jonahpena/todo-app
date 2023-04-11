@@ -84,26 +84,23 @@ namespace TaskListAPITest
             Assert.Equal(taskItem.Completed, returnedTask.Completed);
         }
         [Fact]
-        public async Task PostTaskItem_CreatesNewTask()
+        public void PostTaskItem_CreatesNewTask()
         {
             // Arrange
             var dbContext = GetInMemoryDbContext();
             var controller = new TaskItemsController(dbContext);
 
-            var newTask = new TaskItem { Id = 1, Title = "Task 1", Completed = false };
-
+            var newTaskRequest = new TaskItemRequest { Title = "Task 1", Description = "Task 1 Description" };
+    
             // Act
-            var result = await controller.PostTaskItem(newTask);
+            var result = controller.CreateTask(newTaskRequest);
 
             // Assert
-            var actionResult = Assert.IsType<ActionResult<TaskItem>>(result);
-
-            var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(actionResult.Result);
+            var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
             var createdTask = Assert.IsType<TaskItem>(createdAtActionResult.Value);
-            Assert.Equal(newTask.Id, createdTask.Id);
-            Assert.Equal(newTask.Title, createdTask.Title);
-            Assert.Equal(newTask.Completed, createdTask.Completed);
+            Assert.Equal(newTaskRequest.Title, createdTask.Title);
         }
+
         [Fact]
         public async Task DeleteTaskItem_DeletesTask()
         {
@@ -137,7 +134,6 @@ namespace TaskListAPITest
             // Assert
             Assert.IsType<NotFoundResult>(result);
         }
-        
         [Fact]
         public async Task PutTaskItem_UpdatesTask()
         {
@@ -149,24 +145,25 @@ namespace TaskListAPITest
             dbContext.Tasks.Add(taskToUpdate);
             dbContext.SaveChanges();
 
-            var updatedTask = new TaskItem { Id = 1, Title = "Updated Task 1", Completed = true };
+            var taskItemUpdate = new TaskItemUpdate { Title = "Updated Task 1", Description = "Updated Description", Completed = true };
 
             // Act
-            var result = await controller.PutTaskItem(1, updatedTask);
+            var result = controller.UpdateTask(1, taskItemUpdate);
 
             // Assert
-            Assert.IsType<NoContentResult>(result);
-            var task = await dbContext.Tasks.FindAsync(1);
-            
-            if (task != null)
-            {
-                Assert.Equal(updatedTask.Id, task.Id);
-                Assert.Equal(updatedTask.Title, task.Title);
-                Assert.Equal(updatedTask.Completed, task.Completed);
-            }
+            var okObjectResult = Assert.IsType<OkObjectResult>(result);
+            var updatedTask = Assert.IsType<TaskItem>(okObjectResult.Value);
+            Assert.Equal(taskItemUpdate.Title, updatedTask.Title);
+            Assert.Equal(taskItemUpdate.Description, updatedTask.Description);
+            Assert.Equal(taskItemUpdate.Completed, updatedTask.Completed);
 
+            var task = await dbContext.Tasks.FindAsync(1);
+            Assert.NotNull(task);
+            Assert.Equal(taskItemUpdate.Title, task.Title);
+            Assert.Equal(taskItemUpdate.Description, task.Description);
+            Assert.Equal(taskItemUpdate.Completed, task.Completed);
         }
-        
+
         [Fact]
         public async Task PutTaskItem_ReturnsNotFoundOnNonExistentTask()
         {
@@ -174,17 +171,35 @@ namespace TaskListAPITest
             var dbContext = GetInMemoryDbContext();
             var controller = new TaskItemsController(dbContext);
 
-            var nonExistentTask = new TaskItem { Id = 1, Title = "Non-Existent Task", Completed = false };
+            var taskItemUpdate = new TaskItemUpdate { Title = "Non-Existent Task", Completed = false };
+            // Act
+            var result = controller.UpdateTask(1, taskItemUpdate);
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+        [Fact]
+        public void PutTaskItem_ReturnsBadRequest_WhenIdMismatch()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new TaskItemsController(dbContext);
+
+            var existingTask = new TaskItem { Id = 1, Title = "Existing Task", Completed = false };
+            dbContext.Tasks.Add(existingTask);
+            dbContext.SaveChanges();
+
+            var taskItemUpdate = new TaskItemUpdate { Title = "Updated Task", Completed = true };
 
             // Act
-            var result = await controller.PutTaskItem(1, nonExistentTask);
+            var result = controller.UpdateTask(2, taskItemUpdate);
 
             // Assert
             Assert.IsType<NotFoundResult>(result);
         }
 
+
         [Fact]
-        public async Task PutTaskItem_ReturnsBadRequest_WhenIdMismatch()
+        public void PutTaskItem_ReturnsBadRequest_WhenTitleMissing()
         {
             // Arrange
             var dbContext = GetInMemoryDbContext();
@@ -192,36 +207,24 @@ namespace TaskListAPITest
 
             var existingTask = new TaskItem { Id = 1, Title = "Existing Task", Completed = false };
             dbContext.Tasks.Add(existingTask);
-            await dbContext.SaveChangesAsync();
+            dbContext.SaveChanges();
 
-            var updatedTask = new TaskItem { Id = 2, Title = "Updated Task", Completed = true };
+            var taskItemUpdate = new TaskItemUpdate { Title = null, Completed = true };
 
             // Act
-            var result = await controller.PutTaskItem(1, updatedTask);
+            var result = controller.UpdateTask(1, taskItemUpdate);
 
             // Assert
             Assert.IsType<BadRequestResult>(result);
+
+            // Verify that the task item was not actually updated in the database
+            var updatedTask = dbContext.Tasks.Find(1);
+            Assert.Equal(existingTask.Title, updatedTask.Title);
+            Assert.Equal(existingTask.Completed, updatedTask.Completed);
         }
-        
-        [Fact]
-        public async Task PutTaskItem_ReturnsBadRequest_WhenTitleMissing()
-        {
-            // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new TaskItemsController(dbContext);
 
-            var existingTask = new TaskItem { Id = 1, Title = "Existing Task", Completed = false };
-            dbContext.Tasks.Add(existingTask);
-            await dbContext.SaveChangesAsync();
 
-            var updatedTask = new TaskItem { Id = 1, Title = null, Completed = true };
 
-            // Act
-            var result = await controller.PutTaskItem(1, updatedTask);
-
-            // Assert
-            Assert.IsType<BadRequestResult>(result);
-        }
         
         [Fact]
         public void TaskItem_DescriptionProperty()

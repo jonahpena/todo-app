@@ -36,11 +36,21 @@ namespace TaskListAPIProject.Controllers
 
             return taskItem;
         }
-
         [HttpPut("{id}")]
         public IActionResult UpdateTask(int id, TaskItemUpdate taskItemUpdate)
         {
+            if (taskItemUpdate == null)
+            {
+                return BadRequest();
+            }
+
+            if (taskItemUpdate.Title == null)
+            {
+                return BadRequest();
+            }
+
             var taskItem = _context.Tasks.Find(id);
+
             if (taskItem == null)
             {
                 return NotFound();
@@ -49,12 +59,17 @@ namespace TaskListAPIProject.Controllers
             taskItem.Title = taskItemUpdate.Title;
             taskItem.Description = taskItemUpdate.Description;
             taskItem.Completed = taskItemUpdate.Completed;
-            taskItem.Version++; 
 
             _context.SaveChanges();
 
             return Ok(taskItem);
         }
+
+
+
+
+
+
 
 
         [HttpPost]
