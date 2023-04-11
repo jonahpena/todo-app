@@ -7,5 +7,6 @@
         public string? Description { get; set; }
 
         public bool Completed { get; set; }
+        public int Version { get; set; }
     }
 }

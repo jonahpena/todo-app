@@ -38,57 +38,43 @@ namespace TaskListAPIProject.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskItem(int id, TaskItem taskItem)
+        public IActionResult UpdateTask(int id, TaskItemUpdate taskItemUpdate)
         {
-            if (id != taskItem.Id)
+            var taskItem = _context.Tasks.Find(id);
+            if (taskItem == null)
             {
-                return BadRequest();
-            }
-            
-            if (string.IsNullOrEmpty(taskItem.Title))
-            {
-                return BadRequest();
+                return NotFound();
             }
 
-            // Detach any existing entity with the same Id
-            var existingEntity = await _context.Tasks.FindAsync(id);
-            if (existingEntity != null)
-            {
-                _context.Entry(existingEntity).State = EntityState.Detached;
-            }
+            taskItem.Title = taskItemUpdate.Title;
+            taskItem.Description = taskItemUpdate.Description;
+            taskItem.Completed = taskItemUpdate.Completed;
+            taskItem.Version++; 
 
-            _context.Entry(taskItem).State = EntityState.Modified;
+            _context.SaveChanges();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Tasks.Any(e => e.Id == id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return Ok(taskItem);
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)
+        public IActionResult CreateTask(TaskItemRequest taskItemRequest)
         {
-            _context.Tasks.Add(taskItem);
-            await _context.SaveChangesAsync();
+            TaskItem taskItem = new TaskItem
+            {
+                Title = taskItemRequest.Title,
+                Description = taskItemRequest.Description
+            };
 
-            return CreatedAtAction("GetTaskItem", new { id = taskItem.Id }, taskItem);
+            _context.Tasks.Add(taskItem);
+            _context.SaveChanges();
+
+            return CreatedAtAction(nameof(GetTaskItem), new { id = taskItem.Id }, taskItem);
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteTaskItem(int id)
         {
             var taskItem = await _context.Tasks.FindAsync(id);
