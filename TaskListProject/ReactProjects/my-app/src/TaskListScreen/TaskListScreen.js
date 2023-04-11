@@ -121,7 +121,7 @@ function TaskListScreen() {
       <ul testis="task-list">
         {items.reverse().map((item, index) => (
           <TaskItem
-            key={index}
+            key={item.id}
             item={item}
             index={index}
             handleRemoveItem={handleRemoveItem}
@@ -146,7 +146,7 @@ function TaskListScreen() {
             <ul data-testid="completed-task-list">
               {completedItems.slice(0).map((item, index) => (
                 <CompletedListItem
-                  key={index}
+                  key={item.id}
                   item={item}
                   completedItems={completedItems}
                   handleRemoveItem={handleRemoveItem}
