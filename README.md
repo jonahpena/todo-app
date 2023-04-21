@@ -31,11 +31,13 @@ The project was built using the following technologies and libraries:
 
 This is a simple application that helps users keep track of tasks and mark them as complete. It allows users to:
 
-- Create tasks with a description and due date
+- Create tasks with a description
 - View a list of tasks
 - Update existing tasks
 - Delete tasks
 - Mark tasks as complete
+- Keep track of completed tasks
+- Delete completed tasks
 
 ## Installation
 
@@ -59,7 +61,7 @@ Please ensure that your code follows the existing style conventions and that all
 
 ## License
 
-This project is licensed under the MIT License. For more information, please see the LICENSE file.
+(under construction)
 
 ## Contact Information
 
