@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{530212A8-AF74-4DBF-96FA-D7AB69A8C453}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.TaskListAPIProject PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/TaskItemsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../usr/local/share/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets">
     <Files>
       <File FileName="Models/TaskItem.cs" />
-      <File FileName="Controllers/TaskItemsController.cs" Line="87" Column="14" />
+      <File FileName="Controllers/TaskItemsController.cs" />
       <File FileName="Program.cs" />
       <File FileName="Data/TaskDbContext.cs" />
       <File FileName="appsettings.json" />
       <File FileName="appsettings.Development.json" />
+      <File FileName="../../../../../../usr/local/share/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="268" Column="51" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,9 +24,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.TaskListAPIProject PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

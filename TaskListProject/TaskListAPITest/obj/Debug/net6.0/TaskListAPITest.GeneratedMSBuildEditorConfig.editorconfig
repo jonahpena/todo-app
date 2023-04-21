@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TaskListAPITest
-build_property.ProjectDir = C:\Users\jonah\github\csprojects\TaskListProject\TaskListAPITest\
+build_property.ProjectDir = /Users/jonahpena/github/csprojects/TaskListProject/TaskListAPITest/
