@@ -47,6 +47,79 @@ This is a simple application that helps users keep track of tasks and mark them 
 
 Once the application is running, you can interact with it through the web interface. To create a new task, click the input and fill out the form with the task description. You can view all your tasks on the main page. To update a task, click directly on the text. To delete a task, click on the "X" to the right of the task description. To mark a task as complete, click the checkbox next to the task.
 
+## Code Examples
+
+Here are some code examples demonstrating key parts of the `TaskItemsController`, which handles the CRUD operations for tasks in the project:
+
+### Creating a Task
+
+To create a new task, a POST request is sent to the `/tasks` endpoint with the task title and description in the request body. The `CreateTask` method in the `TaskItemsController` handles this request:
+
+```csharp
+[HttpPost]
+public IActionResult CreateTask(TaskItemRequest taskItemRequest)
+{
+    TaskItem taskItem = new TaskItem
+    {
+        Title = taskItemRequest.Title,
+        Description = taskItemRequest.Description
+    };
+
+    _context.Tasks.Add(taskItem);
+    _context.SaveChanges();
+
+    return CreatedAtAction(nameof(GetTaskItem), new { id = taskItem.Id }, taskItem);
+}
+```
+### Updating a Task
+
+To update an existing task, a PUT request is sent to the /tasks/{id} endpoint with the task ID in the URL and the updated task title, description, and completion status in the request body. The UpdateTask method in the TaskItemsController handles this request:
+
+```csharp
+[HttpPut("{id}")]
+public IActionResult UpdateTask(int id, TaskItemUpdate taskItemUpdate)
+{
+    var taskItem = _context.Tasks.Find(id);
+    if (taskItem == null)
+    {
+        return NotFound();
+    }
+
+    taskItem.Title = taskItemUpdate.Title;
+    taskItem.Description = taskItemUpdate.Description;
+    taskItem.Completed = taskItemUpdate.Completed;
+    taskItem.Version++;
+
+    _context.SaveChanges();
+
+    return Ok(taskItem);
+}
+```
+### Deleting a Task
+
+To delete an existing task, a DELETE request is sent to the /tasks/{id} endpoint with the task ID in the URL. The DeleteTaskItem method in the TaskItemsController handles this request:
+
+```csharp
+[HttpDelete("{id}")]
+[ProducesResponseType(StatusCodes.Status204NoContent)]
+[ProducesResponseType(StatusCodes.Status404NotFound)]
+public async Task<IActionResult> DeleteTaskItem(int id)
+{
+    var taskItem = await _context.Tasks.FindAsync(id);
+
+    if (taskItem == null)
+    {
+        return NotFound();
+    }
+
+    _context.Tasks.Remove(taskItem);
+
+    await _context.SaveChangesAsync();
+
+    return NoContent();
+}
+```
+
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
@@ -61,7 +134,7 @@ Please ensure that your code follows the existing style conventions and that all
 
 ## License
 
-(under construction)
+This project is licensed under the MIT License. For more information, please see the [LICENSE](LICENSE) file.
 
 ## Contact Information
 
